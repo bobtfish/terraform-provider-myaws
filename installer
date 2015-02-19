@@ -1,0 +1,11 @@
+#!/bin/sh
+if mountpoint -q /target; then
+    echo "Installing terraform-provider-myaws to /target"
+    cp /go/bin/terraform-provider-myaws /target
+else
+    echo "/target is not a mountpoint."
+    echo "You can either:"
+    echo "- re-run this container with -v \"\$HOME/bin:/target\""
+    echo "- extract the terraform-provider-myaws binary (located at /go/bin/terraform-provider-myaws)"
+fi
+
